@@ -1,8 +1,10 @@
 [Desktop Entry]
+Version=1.1
+Type=Application
 Name=osu!
 Comment=A free-to-win online rhythm game
-Exec=/opt/osu!
 Icon=osu
-Terminal=false
-Type=Application
+Exec=/opt/osu/osu!
+Path=/opt/osu
+Actions=
 Categories=Game;

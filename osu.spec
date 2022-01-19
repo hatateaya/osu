@@ -7,7 +7,7 @@
 %global __requires_exclude_from ^/opt/osu/.*$
 Name:           osu
 Version:        2022.118.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A free-to-win rhythm game.
 
 License:        MIT
@@ -64,5 +64,8 @@ cp -v %{SOURCE3} %{buildroot}%{_datadir}/mime/application/
 %{_datadir}/mime/application/x-osu.xml
 
 %changelog
+* Wed Jan 19 2022 Cappy Ishihara <cappy@cappuchino.xyz> - 2022.118.0-2
+- fixed desktop file
+
 * Wed Jan 19 2022 Cappy Ishihara <cappy@cappuchino.xyz>
 - Initial release
