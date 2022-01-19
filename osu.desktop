@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=osu!
+Comment=A free-to-win online rhythm game
+Exec=/opt/osu!
+Icon=osu
+Terminal=false
+Type=Application
+Categories=Game;
