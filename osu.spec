@@ -1,7 +1,10 @@
 %global __os_install_post %{nil}
-%define __spec_install_post %{nil}
 %undefine _disable_source_fetch
 %define debug_package %{nil}
+# RPMBuild actually generates alot of requirements that we do not actually use and doesn't actually exist. So we have to disable it. Weird .NET issue.
+# We will provide what we have but not require all the weird stuff.
+# exclude everything in /opt/osu/ with regex
+%global __requires_exclude_from ^/opt/osu/.*$
 Name:           osu
 Version:        2022.118.0
 Release:        1%{?dist}
@@ -33,8 +36,8 @@ dotnet build osu.Desktop -p:Configuration=Release -p:GenerateFullPaths=true -m -
 %install
 rm -rf $RPM_BUILD_ROOT
 # install .NET output
-mkdir -p $RPM_BUILD_ROOT/opt/osu
-cp -r osu.Desktop/bin/Release/net5.0/* $RPM_BUILD_ROOT/opt/osu
+mkdir -p $RPM_BUILD_ROOT/opt/
+cp -ax osu.Desktop/bin/Release/net5.0/ $RPM_BUILD_ROOT/opt/osu/
 
 #install desktop icons
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/icons/hicolor/1024x1024/apps/
