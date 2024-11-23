@@ -12,7 +12,7 @@ Summary:        A free-to-win rhythm game.
 
 License:        MIT
 URL:            https://osu.ppy.sh/
-Source0:        https://github.com/ppy/osu/archive/refs/tags/%{version}.tar.gz
+Source0:        https://github.com/ppy/osu/archive/%{version}.tar.gz
 Source1:        osu.desktop
 Source2:        sh.ppy.osu.appdata.xml
 Source3:        x-osu.xml
