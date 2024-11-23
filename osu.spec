@@ -31,9 +31,9 @@ wget2 https://github.com/ppy/osu/archive/refs/tags/2024.1115.3.tar.gz
 cd %_builddir
 rm -rf osu-%{version}
 gzip -dc %_sourcedir/%{version}.tar.gz | tar -xvvf -
-cd osu-%{version}
 
 %build
+cd osu-%{version}
 # dotnet build osu.Desktop -p:Configuration=Release -p:GenerateFullPaths=true -m -verbosity:m
 DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
     --framework net8.0 \
