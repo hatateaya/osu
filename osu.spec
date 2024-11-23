@@ -12,7 +12,7 @@ Summary:        A free-to-win rhythm game.
 
 License:        MIT
 URL:            https://osu.ppy.sh/
-Source0:        https://github.com/ppy/osu/archive/%{version}.tar.gz
+Source0:        https://github.com/ppy/osu/archive/refs/tags/%{version}.tar.gz
 Source1:        osu.desktop
 Source2:        sh.ppy.osu.appdata.xml
 Source3:        x-osu.xml
@@ -26,7 +26,7 @@ osu! is a free-to-play rhythm game inspired by Osu! Tatakae! Ouendan.
 This is the new experimental release of osu! called osu!lazer which is rewritten from the ground up using .NET 5.0.
 
 %prep
-%autosetup -n osu-%{version}
+%
 
 
 %build
