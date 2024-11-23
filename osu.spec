@@ -33,7 +33,7 @@ rm -rf osu-%{version}
 gzip -dc %_sourcedir/%{version}.tar.gz | tar -xvvf -
 
 %build
-cd osu-%{version}
+cd %_builddir/osu-%{version}
 # dotnet build osu.Desktop -p:Configuration=Release -p:GenerateFullPaths=true -m -verbosity:m
 DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
     --framework net8.0 \
@@ -44,6 +44,7 @@ DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
     /property:Version="%{version}"
 
 %install
+cd %_builddir/osu-%{version}
 rm -rf $RPM_BUILD_ROOT
 # install .NET output
 mkdir -p $RPM_BUILD_ROOT/opt/
