@@ -17,6 +17,7 @@ Source2:        sh.ppy.osu.appdata.xml
 Source3:        x-osu.xml
 BuildRequires:  dotnet-sdk-8.0
 BuildRequires:  libappstream-glib
+BuildRequires:  wget2
 Requires:       dotnet
 
 %description
