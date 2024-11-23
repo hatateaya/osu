@@ -26,8 +26,13 @@ osu! is a free-to-play rhythm game inspired by Osu! Tatakae! Ouendan.
 This is the new experimental release of osu! called osu!lazer which is rewritten from the ground up using .NET 5.0.
 
 %prep
-%autosetup -v -n osu-%{version}
-
+cd %_builddir
+rm -rf osu-%{version}
+gzip -dc %_sourcedir/osu-%{version}.tar.gz | tar -xvvf -
+if [ $? -ne 0 ]; then
+  exit $?
+fi
+cd osu-%{version}
 
 %build
 # dotnet build osu.Desktop -p:Configuration=Release -p:GenerateFullPaths=true -m -verbosity:m
