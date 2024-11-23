@@ -27,7 +27,7 @@ This is the new experimental release of osu! called osu!lazer which is rewritten
 
 %prep
 cd %_sourcedir
-wget https://github.com/ppy/osu/archive/refs/tags/2024.1115.3.tar.gz
+wget2 https://github.com/ppy/osu/archive/refs/tags/2024.1115.3.tar.gz
 cd %_builddir
 rm -rf osu-%{version}
 gzip -dc %_sourcedir/%{version}.tar.gz | tar -xvvf -
