@@ -18,7 +18,7 @@ Source3:        x-osu.xml
 BuildRequires:  dotnet-sdk-8.0
 BuildRequires:  libappstream-glib
 BuildRequires:  wget2
-Requires:       dotnet
+Requires:       dotnet-runtime-8.0
 
 %description
 osu! is a free-to-play rhythm game inspired by Osu! Tatakae! Ouendan.
