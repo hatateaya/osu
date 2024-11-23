@@ -31,9 +31,9 @@ wget2 https://github.com/ppy/osu/archive/refs/tags/2024.1115.3.tar.gz
 cd %_builddir
 rm -rf osu-%{version}
 gzip -dc %_sourcedir/%{version}.tar.gz | tar -xvvf -
+mv osu-%{version}/* ./
 
 %build
-cd %_builddir/osu-%{version}
 # dotnet build osu.Desktop -p:Configuration=Release -p:GenerateFullPaths=true -m -verbosity:m
 DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
     --framework net8.0 \
@@ -44,7 +44,6 @@ DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
     /property:Version="%{version}"
 
 %install
-cd %_builddir/osu-%{version}
 rm -rf $RPM_BUILD_ROOT
 # install .NET output
 mkdir -p $RPM_BUILD_ROOT/opt/
@@ -66,7 +65,6 @@ appstream-util validate-relax --nonet  %{buildroot}/%{_datadir}/appdata/*
 mkdir -p %{buildroot}%{_datadir}/mime/application/
 cp -v %{SOURCE3} %{buildroot}%{_datadir}/mime/application/
 
-# Fix Vulkan renderer. See: https://github.com/ppy/osu/discussions/27659#discussioncomment-9101487
 ln -sf /usr/lib/libdl.so.2 "$RPM_BUILD_ROOT/opt/osu/libdl.so"
 
 %files
